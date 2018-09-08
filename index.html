@@ -59,6 +59,7 @@
                 grid-area: footer;
             }
     </style>
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -109,17 +110,11 @@
     </div>
 
 <canvas id="myCanvas" width="480" height="320"></canvas>
-
-<script>
-	// grab reference to the html canvas element
-    var canvas = document.getElementById("myCanvas");
-    // 2d rendering context 
-    // other options include webgl, bitmaprenderer
-    var ctx = canvas.getContext("2d");
-    
-    // ctx is a "pointer" to the context in the canvas
-    // we use it to draw a shapes and move them
-</script>
-
 </body>
+<script>
+    var socket = io();
+    socket.on('message', function(data) {
+        console.log(data);
+    });
+</script>
 </html>
