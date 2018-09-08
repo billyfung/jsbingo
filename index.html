@@ -5,7 +5,7 @@
     <title>Gamedev Canvas Workshop</title>
     <style>
     	* { padding: 0; margin: 0; }
-    	canvas { background: #eee; display: block; margin: 0 auto; }
+    	/* canvas { background: #eee; display: block; margin: 0 auto; } */
         body {
             background-color: white;
             color: black;
@@ -27,56 +27,86 @@
                 text-align: center;
                 width: 20%;
             }
-            #free, .pickedBG {
+            #square12, .pickedBG {
                 background-color: #f66;
             }
+            .wrapper {
+                display: grid;
+                grid-gap: 20px;
+                grid-template-columns: 1fr 4fr 1fr;
+                grid-template-areas: 
+                "header header  header"
+                "nav    content sidebar"
+                "nav    content ad"
+                "footer footer  footer"
+            }
+            .main-head {
+                grid-area: header;
+            }
+            .content {
+                grid-area: content;
+            }
+            .main-nav {
+                grid-area: nav;
+            }
+            .side {
+                grid-area: sidebar;
+            }
+            .ad {
+                grid-area: ad;
+            }
+            .main-footer {
+                grid-area: footer;
+            }
     </style>
-    <table>
-        <tr>
-        <th>B</th>
-        <th>I</th>
-        <th>N</th>
-        <th>G</th>
-        <th>O</th>
-        </tr>
-    <tr id="row1">
-        <td id="square0">&nbsp;</td>
-        <td id="square1">&nbsp;</td>
-        <td id="square2">&nbsp;</td>
-        <td id="square3">&nbsp;</td>
-        <td id="square4">&nbsp;</td>
-      </tr>
-    <tr id="row2">
-        <td id="square5">&nbsp;</td>
-        <td id="square6">&nbsp;</td>
-        <td id="square7">&nbsp;</td>
-        <td id="square8">&nbsp;</td>
-        <td id="square9">&nbsp;</td>
-    </tr>
-    <tr id="row3">
-        <td id="square10">&nbsp;</td>
-        <td id="square11">&nbsp;</td>
-        <td id="square12">Free</td>
-        <td id="square13">&nbsp;</td>
-        <td id="square14">&nbsp;</td>
-    </tr>
-    <tr id="row4">
-        <td id="square15">&nbsp;</td>
-        <td id="square16">&nbsp;</td>
-        <td id="square17">&nbsp;</td>
-        <td id="square18">&nbsp;</td>
-        <td id="square19">&nbsp;</td>
-    </tr>
-    <tr id="row5">
-        <td id="square20">&nbsp;</td>
-        <td id="square21">&nbsp;</td>
-        <td id="square22">&nbsp;</td>
-        <td id="square23">&nbsp;</td>
-        <td id="square24">&nbsp;</td>
-    </tr>
-    </table>
 </head>
 <body>
+    <div class="wrapper">
+         <table class="content">
+            <tr>
+                <th>B</th>
+                <th>I</th>
+                <th>N</th>
+                <th>G</th>
+                <th>O</th>
+            </tr>
+            <tr id="row1">
+                <td id="square0">&nbsp;</td>
+                <td id="square1">&nbsp;</td>
+                <td id="square2">&nbsp;</td>
+                <td id="square3">&nbsp;</td>
+                <td id="square4">&nbsp;</td>
+            </tr>
+            <tr id="row2">
+                <td id="square5">&nbsp;</td>
+                <td id="square6">&nbsp;</td>
+                <td id="square7">&nbsp;</td>
+                <td id="square8">&nbsp;</td>
+                <td id="square9">&nbsp;</td>
+            </tr>
+            <tr id="row3">
+                <td id="square10">&nbsp;</td>
+                <td id="square11">&nbsp;</td>
+                <td id="square12">Free</td>
+                <td id="square13">&nbsp;</td>
+                <td id="square14">&nbsp;</td>
+            </tr>
+            <tr id="row4">
+                <td id="square15">&nbsp;</td>
+                <td id="square16">&nbsp;</td>
+                <td id="square17">&nbsp;</td>
+                <td id="square18">&nbsp;</td>
+                <td id="square19">&nbsp;</td>
+            </tr>
+            <tr id="row5">
+                <td id="square20">&nbsp;</td>
+                <td id="square21">&nbsp;</td>
+                <td id="square22">&nbsp;</td>
+                <td id="square23">&nbsp;</td>
+                <td id="square24">&nbsp;</td>
+            </tr>
+        </table>
+    </div>
 
 <canvas id="myCanvas" width="480" height="320"></canvas>
 
@@ -89,11 +119,6 @@
     
     // ctx is a "pointer" to the context in the canvas
     // we use it to draw a shapes and move them
-    ctx.beginPath();
-    ctx.arc(240, 160, 20, 0, Math.PI*2, false);
-    ctx.fillStyle = "green";
-    ctx.fill();
-    ctx.closePath();
 </script>
 
 </body>
